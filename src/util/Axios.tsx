@@ -21,7 +21,7 @@ export const invokeAxios = async <T extends unknown>(
   method: Method = "GET",
   config?: AxiosRequestConfig & { contentType?: any }
 ) => {
-  const baseUrl = process.env.REACT_APP_BASEAPI;
+  const baseUrl = import.meta.env.VITE_BASEAPI;
   const token: any = await acquireTokenAsync();
   const decodedToken: any = jwt.decode(token, { complete: true }) as unknown;
 

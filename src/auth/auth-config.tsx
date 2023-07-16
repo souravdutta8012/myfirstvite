@@ -1,7 +1,7 @@
 import { AccountInfo, Configuration, IPublicClientApplication, ProtocolMode, SilentRequest } from "@azure/msal-browser";
 
 const tenantId = "a3299bba-ade6-4965-b011-bada8d1d9558";
-const clientId = process.env.REACT_APP_AAD_CLIENTID || "cd7fccfa-00f3-46d5-87fd-588b50c12637";
+const clientId = import.meta.env.VITE_AAD_CLIENTID || "cd7fccfa-00f3-46d5-87fd-588b50c12637";
 const authority = `https://login.microsoftonline.com/${tenantId}`;
 export const MSAL_SCOPES = ["offline_access", "profile", "openid", "email"];
 
