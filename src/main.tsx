@@ -1,7 +1,13 @@
+import './index.css';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
-import './index.css';
+
+export default function AppProvider() {
+  return (
+    <App />
+  );
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <App />
+  <AppProvider />
 )

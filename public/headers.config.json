@@ -1,0 +1,17 @@
+{
+  "CSP": {
+    "script-src": [
+      "'unsafe-eval'",
+      "'self'",
+      "'unsafe-inline'"
+    ],
+    "connect-src": [
+      "https://s3.ap-southeast-2.amazonaws.com/",
+      "https://woodside-observability-prod.apm.ap-southeast-2.aws.found.io/",
+      "'self'"
+    ],
+    "frame-src": [
+      "'self'"
+    ]
+  }
+}

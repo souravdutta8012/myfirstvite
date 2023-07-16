@@ -2,18 +2,19 @@ import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { AppBar, Avatar, Box, Divider, IconButton, Popover, Toolbar, Tooltip } from "@mui/material";
 import { BubbleChartRounded, MoreVertRounded } from '@mui/icons-material';
-import { useUserState } from "../../util/User";
-import { getPicture } from "../../util/Api";
+// import { useUserState } from "../../util/User";
+// import { getPicture } from "../../util/Api";
 
 export default function Header() {
-    const { auth } = useUserState();
+    // const { auth } = useUserState();
 
     const [pictureData, setPictureData] = useState<any>(null);
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
     const open = Boolean(anchorEl);
 
     useEffect(() => {
-        getPictureData();
+        setPictureData(null);
+        // getPictureData();
         // eslint-disable-next-line
     }, []);
 
@@ -25,26 +26,26 @@ export default function Header() {
         setAnchorEl(null);
     };
 
-    const stringAvatar = (name: string) => {
-        return {
-            sx: {
-                bgcolor: "#00354D",
-                width: 45,
-                height: 45,
-            },
-            children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
-        };
-    };
+    // const stringAvatar = (name: string) => {
+    //     return {
+    //         sx: {
+    //             bgcolor: "#00354D",
+    //             width: 45,
+    //             height: 45,
+    //         },
+    //         children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+    //     };
+    // };
 
-    const getPictureData = async () => {
-        let payload = {
-            email: auth.email
-        }
-        const response: any = await getPicture(payload);
-        if (response) {
-            setPictureData(response?.result);
-        }
-    };
+    // const getPictureData = async () => {
+    //     let payload = {
+    //         email: auth.email
+    //     }
+    //     const response: any = await getPicture(payload);
+    //     if (response) {
+    //         setPictureData(response?.result);
+    //     }
+    // };
 
     return (
         <>
@@ -79,14 +80,16 @@ export default function Header() {
                                         {pictureData ? (
                                             <Avatar src={`data:image/jpeg;base64,${pictureData}`} className="w-12 h-12" />
                                         ) : (
-                                            <Avatar {...stringAvatar(`${auth?.firstname} ${auth?.lastname}`)} className="w-12 h-12" />
+                                            // <Avatar {...stringAvatar(`${auth?.firstname} ${auth?.lastname}`)} className="w-12 h-12" />
+                                            null
                                         )}
                                         <Box className="ml-5">
                                             <Box className="font-semibold text-gray-600">
-                                                Hey, {auth?.firstname} {auth?.lastname}
+                                                Hey,
+                                                {/* {auth?.firstname} {auth?.lastname} */}
                                             </Box>
                                             <Box className="text-sm text-gray-600">
-                                                {auth?.email}
+                                                {/* {auth?.email} */}
                                             </Box>
                                         </Box>
                                     </Box>
